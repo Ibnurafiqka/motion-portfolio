@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f8f5;
+  --foreground: #0b1511;
+  --surface: #ffffff;
+  --surface-2: #edf3ef;
+  --surface-3: #e2ece6;
+  --border: #d4e1d8;
+  --muted: #42524a;
+  --muted-2: #5a6b62;
+  --accent: #4ade80;
+  --accent-strong: #0f7a42;
+  --accent-soft: #d1f6e3;
+  --ring: #34d399;
+  --hero-glow-1: rgba(52, 211, 153, 0.25);
+  --hero-glow-2: rgba(15, 122, 66, 0.18);
+  --grid-line: rgba(6, 95, 70, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-2: var(--muted-2);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-ring: var(--ring);
+  --font-body: var(--font-body);
+  --font-heading: var(--font-heading);
+}
+
+.dark {
+  --background: #0b1210;
+  --foreground: #e9f6ef;
+  --surface: #0f1915;
+  --surface-2: #12201b;
+  --surface-3: #1a2a24;
+  --border: #1d2d27;
+  --muted: #9bb3a7;
+  --muted-2: #7e958a;
+  --accent: #4ade80;
+  --accent-strong: #0b8a4a;
+  --accent-soft: #143226;
+  --ring: #34d399;
+  --hero-glow-1: rgba(34, 197, 94, 0.22);
+  --hero-glow-2: rgba(14, 116, 64, 0.25);
+  --grid-line: rgba(74, 222, 128, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(1200px 600px at 10% -10%, var(--hero-glow-1), transparent 60%),
+    radial-gradient(800px 400px at 90% 10%, var(--hero-glow-2), transparent 50%);
+  color: var(--foreground);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: #062014;
+}
+
+@layer utilities {
+  .text-gradient {
+    background-image: linear-gradient(120deg, var(--accent), var(--accent-strong));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .shadow-soft {
+    box-shadow:
+      0 20px 60px rgba(7, 35, 22, 0.18),
+      0 2px 12px rgba(7, 35, 22, 0.08);
+  }
+
+  .ring-glow {
+    box-shadow:
+      inset 0 0 0 1px var(--border),
+      0 0 0 1px rgba(52, 211, 153, 0.15),
+      0 24px 60px rgba(16, 122, 66, 0.18);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 9s ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration, 20s) linear infinite;
+  }
+
+  .animate-marquee-slow {
+    animation: marquee var(--duration, 28s) linear infinite;
+  }
+
+  .marquee-track {
+    animation: marquee var(--duration, 20s) linear infinite;
+  }
+
+  .marquee-track-reverse {
+    animation: marquee var(--duration, 20s) linear infinite reverse;
+  }
+
+  .flow-lines {
+    background-image:
+      linear-gradient(120deg, rgba(52, 211, 153, 0.2), transparent 40%),
+      linear-gradient(300deg, rgba(16, 122, 66, 0.25), transparent 50%);
+    background-size: 200% 200%;
+    animation: flow 10s linear infinite;
+  }
+
+  .flow-stroke {
+    stroke: url(#flowGradient);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 14 28;
+    animation: flow-dash 7.5s ease-in-out infinite;
+  }
+
+  .flow-stroke.delay-1 {
+    animation-delay: 1.2s;
+  }
+
+  .flow-stroke.delay-2 {
+    animation-delay: 2.4s;
+  }
+
+  .flow-stroke.slow {
+    animation-duration: 9.5s;
+  }
+
+  .flow-glow {
+    stroke: url(#flowGradient);
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0.25;
+    filter: drop-shadow(0 6px 14px rgba(52, 211, 153, 0.25));
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes flow-dash {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  65% {
+    stroke-dashoffset: -80;
+  }
+  100% {
+    stroke-dashoffset: -80;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-slow,
+  .animate-marquee,
+  .animate-marquee-slow,
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none;
+  }
+  .flow-lines {
+    animation: none;
+  }
+  .flow-stroke {
+    animation: none;
+  }
+}
