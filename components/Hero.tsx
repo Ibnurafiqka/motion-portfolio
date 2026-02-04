@@ -29,7 +29,7 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
         variants={slowStagger}
-        className="mx-auto grid min-h-screen max-w-6xl items-center gap-12 px-6 pb-24 pt-36 lg:grid-cols-[1.1fr_0.9fr]"
+        className="mx-auto grid min-h-screen max-w-6xl items-center gap-12 px-6 pb-24 pt-36 lg:items-start lg:grid-cols-[1.1fr_0.9fr]"
       >
         <div className="space-y-6">
           <motion.div
@@ -82,8 +82,11 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div variants={scaleIn} className="relative flex justify-center">
-          <div className="relative h-72 w-72 md:h-80 md:w-80">
+        <motion.div
+          variants={scaleIn}
+          className="relative flex justify-center lg:mt-10"
+        >
+          <div className="relative h-80 w-80 md:h-96 md:w-96 lg:h-[420px] lg:w-[420px]">
             <Globe className="absolute inset-0" />
           </div>
           <div className="pointer-events-none absolute -left-4 top-10 hidden flex-col gap-3 lg:flex">

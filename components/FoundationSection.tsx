@@ -23,52 +23,54 @@ export default function FoundationSection() {
 
   return (
     <motion.div ref={containerRef} variants={slowStagger} className="relative mt-12">
-      <div className="relative flex justify-center">
-        <div ref={coreRef} className="relative">
-          <FlowCore />
-          <span
-            ref={coreAnchorRef}
-            className="absolute left-1/2 bottom-0 h-2 w-2 -translate-x-1/2 translate-y-1 rounded-full border border-border bg-surface"
-          />
+      <div className="relative grid gap-y-12 md:grid-cols-3 md:gap-x-6">
+        <div className="flex justify-center md:col-start-2">
+          <div ref={coreRef} className="relative">
+            <FlowCore />
+            <span
+              ref={coreAnchorRef}
+              className="absolute left-1/2 bottom-0 h-2 w-2 -translate-x-1/2 translate-y-1 rounded-full border border-border bg-surface"
+            />
+          </div>
         </div>
+
+        <motion.div
+          variants={fadeUp}
+          className="mt-4 grid gap-6 md:col-span-3 md:mt-6 md:grid-cols-3"
+        >
+          {foundationCards.map((item, index) => (
+            <div key={item.title} ref={cardRefs[index]} className="relative">
+              <span
+                ref={cardAnchorRefs[index]}
+                className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1 rounded-full border border-border bg-surface"
+              />
+              <FoundationCard {...item} />
+            </div>
+          ))}
+        </motion.div>
       </div>
 
-      <motion.div variants={fadeUp} className="mt-16 grid gap-6 md:grid-cols-3">
-        {foundationCards.map((item, index) => (
-          <div key={item.title} ref={cardRefs[index]} className="relative">
-            <span
-              ref={cardAnchorRefs[index]}
-              className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1 rounded-full border border-border bg-surface"
-            />
-            <FoundationCard {...item} />
-          </div>
-        ))}
-      </motion.div>
+      {foundationCards.map((item, index) => {
+        const curvatures = [140, 110, 140];
+        const curvature = curvatures[index % curvatures.length];
 
-      {foundationCards.flatMap((item, index) => {
-        const configs = [
-          { bend: -40 },
-          { bend: 0 },
-          { bend: 40 },
-        ];
-
-        return configs.map((config, configIndex) => (
+        return (
           <AnimatedBeam
-            key={`${item.title}-beam-${configIndex}`}
+            key={`${item.title}-beam`}
             containerRef={containerRef}
             fromRef={cardAnchorRefs[index]}
             toRef={coreAnchorRef}
-            pathType="orthogonal"
-            bend={config.bend}
+            pathType="curved"
+            curvature={curvature}
             reverse
-            duration={4.8 + configIndex * 0.6}
-            delay={configIndex * 0.4 + index * 0.1}
+            duration={4.8 + index * 0.4}
+            delay={index * 0.2}
             repeatDelay={1}
             pathWidth={1.8}
             pathOpacity={0.28}
             className="hidden md:block"
           />
-        ));
+        );
       })}
     </motion.div>
   );

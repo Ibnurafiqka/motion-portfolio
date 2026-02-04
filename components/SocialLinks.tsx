@@ -32,11 +32,10 @@ export default function SocialLinks({
             )}
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface">
-              <img
-                src={social.icon}
-                alt={`${social.label} logo`}
-                className="h-4 w-4 opacity-80 dark:invert"
-                loading="lazy"
+              <i
+                className={`${social.iconClass} text-[18px]`}
+                style={{ color: social.iconColor }}
+                aria-hidden="true"
               />
             </span>
             <span className="text-xs uppercase tracking-[0.18em] text-muted-2">

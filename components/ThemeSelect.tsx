@@ -27,7 +27,7 @@ export default function ThemeSelect({ className }: { className?: string }) {
       <select
         value={theme ?? "system"}
         onChange={(event) => setTheme(event.target.value)}
-        className="h-10 w-28 appearance-none rounded-full border border-border bg-surface-2 px-4 text-xs font-semibold uppercase tracking-[0.2em] text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="h-8 w-26 appearance-none rounded-full border border-border bg-surface-2 px-4 text-xs font-semibold uppercase tracking-[0.2em] text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>

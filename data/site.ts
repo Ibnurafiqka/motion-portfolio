@@ -21,56 +21,40 @@ export const socialLinks = [
     href: "mailto:youremail@example.com",
     handle: "youremail@example.com",
     abbr: "EM",
-    icon: "https://cdn.simpleicons.org/gmail",
+    iconClass: "fa-solid fa-envelope",
+    iconColor: "var(--icon-contrast)",
   },
   {
     label: "WhatsApp",
     href: "https://wa.me/628XXXXXXXXXX",
     handle: "+62 8XX-XXXX-XXXX",
     abbr: "WA",
-    icon: "https://cdn.simpleicons.org/whatsapp",
+    iconClass: "fa-brands fa-square-whatsapp",
+    iconColor: "#25D366",
   },
   {
     label: "LinkedIn",
     href: "https://linkedin.com/in/yourhandle",
     handle: "linkedin.com/in/yourhandle",
     abbr: "IN",
-    icon: "https://cdn.simpleicons.org/linkedin",
+    iconClass: "fa-brands fa-linkedin",
+    iconColor: "#0A66C2",
   },
   {
     label: "GitHub",
     href: "https://github.com/yourhandle",
     handle: "github.com/yourhandle",
     abbr: "GH",
-    icon: "https://cdn.simpleicons.org/github",
+    iconClass: "fa-brands fa-square-github",
+    iconColor: "var(--icon-github)",
   },
   {
     label: "Instagram",
     href: "https://instagram.com/yourhandle",
     handle: "@yourhandle",
     abbr: "IG",
-    icon: "https://cdn.simpleicons.org/instagram",
-  },
-  {
-    label: "X",
-    href: "https://x.com/yourhandle",
-    handle: "@yourhandle",
-    abbr: "X",
-    icon: "https://cdn.simpleicons.org/x",
-  },
-  {
-    label: "Dribbble",
-    href: "https://dribbble.com/yourhandle",
-    handle: "dribbble.com/yourhandle",
-    abbr: "DB",
-    icon: "https://cdn.simpleicons.org/dribbble",
-  },
-  {
-    label: "Behance",
-    href: "https://behance.net/yourhandle",
-    handle: "behance.net/yourhandle",
-    abbr: "BE",
-    icon: "https://cdn.simpleicons.org/behance",
+    iconClass: "fa-brands fa-square-instagram",
+    iconColor: "#E4405F",
   },
 ];
 
@@ -150,12 +134,6 @@ export const techLogos = [
 
 export const foundationCards = [
   {
-    title: "Next.js App Router",
-    description:
-      "Struktur routing modern untuk pengalaman cepat, modular, dan siap scale.",
-    icon: "https://cdn.simpleicons.org/nextdotjs",
-  },
-  {
     title: "Framer Motion",
     description:
       "Animasi sinematik yang tetap ringan dan terasa natural di setiap scroll.",
@@ -166,6 +144,12 @@ export const foundationCards = [
     description:
       "Design token rapi untuk konsistensi visual dan iterasi UI yang cepat.",
     icon: "https://cdn.simpleicons.org/tailwindcss",
+  },
+  {
+    title: "Svelte Animations",
+    description:
+      "Animasi interaktif sinematik yang smooth dan terasa berkesan setiap detail.",
+    icon: "https://cdn.simpleicons.org/svelte",
   },
 ];
 
@@ -238,6 +222,45 @@ export const projects = [
     link: "#",
     demo: "#",
     logo: "MLA",
+    thumbnail: "/images/projects/learning.svg",
+  },
+  {
+    title: "Kawista Commerce",
+    description:
+      "Platform e-commerce dengan katalog cepat, checkout ringan, dan integrasi pembayaran multi-channel.",
+    tech: ["Next.js", "Stripe", "Tailwind", "Edge Caching"],
+    role: "Frontend Lead",
+    year: "2024",
+    impact: "Peningkatan conversion rate 22% dari optimasi checkout.",
+    link: "#",
+    demo: "#",
+    logo: "KWC",
+    thumbnail: "/images/projects/studio.svg",
+  },
+  {
+    title: "Pulse Analytics",
+    description:
+      "Dashboard KPI real-time dengan visualisasi interaktif dan sistem alerting untuk tim bisnis.",
+    tech: ["React", "D3.js", "Node.js", "WebSockets"],
+    role: "Fullstack Engineer",
+    year: "2023",
+    impact: "Waktu analisis turun dari 2 jam ke 15 menit.",
+    link: "#",
+    demo: "#",
+    logo: "PAX",
+    thumbnail: "/images/projects/campus.svg",
+  },
+  {
+    title: "Atlas Property Hub",
+    description:
+      "Marketplace properti dengan pencarian pintar, mapping interaktif, dan lead form yang terukur.",
+    tech: ["Next.js", "Mapbox", "Framer Motion", "SEO"],
+    role: "Product Engineer",
+    year: "2022",
+    impact: "Lead berkualitas naik 35% dalam 3 bulan.",
+    link: "#",
+    demo: "#",
+    logo: "APH",
     thumbnail: "/images/projects/learning.svg",
   },
 ];

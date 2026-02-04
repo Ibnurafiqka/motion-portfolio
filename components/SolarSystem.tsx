@@ -31,8 +31,14 @@ export default function SolarSystem() {
   const pointerTiltXSmooth = useSpring(pointerTiltX, { stiffness: 120, damping: 20 });
   const pointerTiltYSmooth = useSpring(pointerTiltY, { stiffness: 120, damping: 20 });
 
-  const combinedRotateX = useTransform([tilt, pointerTiltXSmooth], ([s, p]) => s + p);
-  const combinedRotateY = useTransform([pointerTiltYSmooth], ([p]) => p);
+  const combinedRotateX = useTransform<number, number>(
+    [tilt, pointerTiltXSmooth],
+    ([s, p]) => s + p,
+  );
+  const combinedRotateY = useTransform<number, number>(
+    [pointerTiltYSmooth],
+    ([p]) => p,
+  );
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();

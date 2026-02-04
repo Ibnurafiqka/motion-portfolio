@@ -49,19 +49,6 @@ export default function ProjectsPage() {
           ))}
         </div>
       </Section>
-
-      <Section className="bg-surface-2/40">
-        <div className="flex flex-wrap items-center justify-between gap-6">
-          <SectionHeading
-            eyebrow="Next Step"
-            title="Ingin lihat project versi live atau prototype?"
-            subtitle="Aku bisa kirimkan detail tambahan, design preview, atau akses demo."
-          />
-          <Button href="/contact" size="lg">
-            Request access
-          </Button>
-        </div>
-      </Section>
     </main>
   );
 }

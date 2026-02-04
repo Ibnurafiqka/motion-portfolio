@@ -4,9 +4,9 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useId, useState } from "react";
 
 interface AnimatedBeamProps {
-  containerRef: React.RefObject<HTMLElement>;
-  fromRef: React.RefObject<HTMLElement>;
-  toRef: React.RefObject<HTMLElement>;
+  containerRef: React.RefObject<HTMLElement | null>;
+  fromRef: React.RefObject<HTMLElement | null>;
+  toRef: React.RefObject<HTMLElement | null>;
   curvature?: number;
   pathType?: "curved" | "orthogonal";
   bend?: number;

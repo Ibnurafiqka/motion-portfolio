@@ -24,7 +24,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Why Ibnu.dev"
           title="Web experience yang terasa premium sejak detik pertama."
-          subtitle="Aku menyusun setiap section seperti arsitektur produk tech: jelas, elegan, dan terasa mahal."
+          subtitle="Saya menyusun setiap section seperti arsitektur produk tech: jelas, elegan, dan terasa mahal."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {highlights.map((item, index) => (
@@ -107,7 +107,7 @@ export default function Home() {
           </Button>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {projects.slice(0, 3).map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>

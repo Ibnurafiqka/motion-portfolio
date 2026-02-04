@@ -99,17 +99,6 @@ export default function AboutPage() {
           <LogoCloud />
         </motion.div>
       </Section>
-
-      <Section id="connect" className="bg-surface-2/40">
-        <SectionHeading
-          eyebrow="Connect"
-          title="Hubungi aku lewat channel favoritmu."
-          subtitle="Semua tautan social media dan kontak langsung sudah disiapkan."
-        />
-        <div className="mt-10">
-          <SocialLinks />
-        </div>
-      </Section>
     </main>
   );
 }
